@@ -108,3 +108,14 @@ ORDER BY Count_of_Name DESC
 
 --========================================================================================
 
+--Query for the Bonus Exercise
+SELECT T.title,
+AVG(S.salary)
+FROM titles T
+JOIN salary S
+ON T.emp_no = S.emp_no
+GROUP BY T.title
+
+--Epilogue Query
+SELECT * FROM emp WHERE emp_no=499942
+
