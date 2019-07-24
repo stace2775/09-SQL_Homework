@@ -70,18 +70,18 @@ COPY DEPT(dept_no, dept_name)
 FROM 'c:\users\stacey.smith\source\09-SQL_Homework\data\departments.csv' DELIMITER ',' CSV HEADER;
 
 COPY EMP(emp_no, birth_date, first_name, last_name, gender, hire_date)
-FROM 'employees.csv' DELIMITER ',' CSV HEADER;
+FROM 'c:\users\stacey.smith\source\09-SQL_Homework\data\employees.csv' DELIMITER ',' CSV HEADER;
 
 COPY DEPT_EMP(emp_no, dept_no, from_date, to_date)
-FROM 'dept_emp.csv' DELIMITER ',' CSV HEADER;
+FROM 'c:\users\stacey.smith\source\09-SQL_Homework\data\dept_emp.csv' DELIMITER ',' CSV HEADER;
 
 COPY DEPT_MGR(dept_no, emp_no, from_date, to_date)
-FROM 'dept_manager.csv' DELIMITER ',' CSV HEADER;
+FROM 'c:\users\stacey.smith\source\09-SQL_Homework\data\dept_manager.csv' DELIMITER ',' CSV HEADER;
 
 COPY SALARY(emp_no, salary, from_date, to_date)
-FROM 'salaries.csv' DELIMITER ',' CSV HEADER;
+FROM 'c:\users\stacey.smith\source\09-SQL_Homework\data\salaries.csv' DELIMITER ',' CSV HEADER;
 
 COPY TITLES(emp_no, title, from_date, to_date)
-FROM 'titles.csv' DELIMITER ',' CSV HEADER;
+FROM 'c:\users\stacey.smith\source\09-SQL_Homework\data\titles.csv' DELIMITER ',' CSV HEADER;
 
 --========================================================================================
