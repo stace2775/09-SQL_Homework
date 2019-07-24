@@ -48,7 +48,8 @@ ON DM.emp_no = DE.emp_no
 JOIN dept D
 ON D.dept_no = DM.dept_no
 JOIN emp E
-ON E.emp_no = DE.emp_no;
+ON E.emp_no = DE.emp_no
+ORDER BY department_name;
 
 
 --List the department of each employee with the following information: employee number, last name, first name, and department name.
@@ -89,15 +90,16 @@ WHERE D.dept_name = 'Sales';
 
 --List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 SELECT
-	E.emp_no,
-	E.last_name,
-	E.first_name,
+	DE.emp_no,
+	E.last_name || ', ' || E.first_name AS Full_Name,
+	--E.last_name,
+	--E.first_name,
 	D.dept_name
-FROM emp E
-JOIN dept_mgr DM
-ON E.emp_no = DM.emp_no
+FROM dept_emp DE
 JOIN dept D
-ON D.dept_no = DM.dept_no
+ON D.dept_no = DE.dept_no
+JOIN emp E
+ON E.emp_no = DE.emp_no
 WHERE D.dept_name = 'Sales' or D.dept_name ='Development';
 
 
