@@ -14,20 +14,20 @@
 --List the following details of each employee: employee number, last name, first name, gender, and salary.
 SELECT 
 	E.emp_no AS Employee_Number,
-	E.last_name AS Last_Name,
-	E.first_name AS First_Name,
+	E.last_name || ', ' || E.first_name AS Full_Name,
+	--E.first_name AS First_Name,
 	E.gender AS Gender,
 	S.salary AS Salary
 FROM emp E
 JOIN salary S
 ON E.emp_no = S.emp_no
-ORDER BY E.last_name
+ORDER BY Full_Name;
 
 
 --List employees who were hired in 1986.
 SELECT * FROM emp 
 WHERE hire_date BETWEEN '1/1/1986' and '12/31/1986'
-ORDER BY hire_date 
+ORDER BY hire_date;
 
 
 --List the manager of each department with the following information: 
@@ -47,7 +47,7 @@ ON DM.emp_no = DE.emp_no
 JOIN dept D
 ON D.dept_no = DM.dept_no
 JOIN emp E
-ON E.emp_no = DE.emp_no
+ON E.emp_no = DE.emp_no;
 
 
 --List the department of each employee with the following information: employee number, last name, first name, and department name.
@@ -60,14 +60,14 @@ FROM emp E
 JOIN dept_emp DE
 ON E.emp_no = DE.emp_no
 JOIN dept D
-ON D.dept_no = DE.dept_no
+ON D.dept_no = DE.dept_no;
 
 --List all employees whose first name is "Hercules" and last names begin with "B."
 SELECT 
 	first_name,
 	last_name
 FROM emp
-WHERE first_name = 'Hercules' and last_name like 'B%'
+WHERE first_name = 'Hercules' and last_name like 'B%';
 
 
 --List all employees in the Sales department, including their employee number, last name, first name, and department name.
@@ -81,7 +81,7 @@ JOIN dept_mgr DM
 ON E.emp_no = DM.emp_no
 JOIN dept D
 ON D.dept_no = DM.dept_no
-WHERE D.dept_name = 'Sales'
+WHERE D.dept_name = 'Sales';
 
 
 --List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
@@ -95,7 +95,7 @@ JOIN dept_mgr DM
 ON E.emp_no = DM.emp_no
 JOIN dept D
 ON D.dept_no = DM.dept_no
-WHERE D.dept_name = 'Sales' or D.dept_name ='Development'
+WHERE D.dept_name = 'Sales' or D.dept_name ='Development';
 
 
 --In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
@@ -104,7 +104,7 @@ SELECT
 	last_name
 FROM emp
 GROUP BY last_name
-ORDER BY Count_of_Name DESC
+ORDER BY Count_of_Name DESC;
 
 --========================================================================================
 
@@ -114,8 +114,8 @@ AVG(S.salary)
 FROM titles T
 JOIN salary S
 ON T.emp_no = S.emp_no
-GROUP BY T.title
+GROUP BY T.title;
 
 --Epilogue Query
-SELECT * FROM emp WHERE emp_no=499942
+SELECT * FROM emp WHERE emp_no=499942;
 
